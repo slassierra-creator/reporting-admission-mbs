@@ -79,10 +79,8 @@ else:
         df.columns = (
             df.columns
             .astype(str)
-            .str.replace("
-", " ", regex=False)
-            .str.replace("
-", " ", regex=False)
+            .str.replace("\n", " ", regex=False)
+            .str.replace("\r", " ", regex=False)
             .str.strip()
             .str.upper()
             .str.replace(" ", "_", regex=False)
@@ -92,21 +90,6 @@ else:
 
         # --- DEBUG : AFFICHAGE DES COLONNES APRÈS NORMALISATION ---
         st.info(f"Colonnes détectées : {list(df.columns)}")
-            .str.strip()
-            .str.upper()
-            .str.replace("
-", "_", regex=False)
-            .str.replace("
-", "_", regex=False)
-            .str.replace(" ", "_", regex=False)
-            .str.replace("-", "_", regex=False)
-            .str.replace('"', "", regex=False)
-            .str.replace(r"[^A-Z0-9_]", "", regex=True)
-        )
-            .str.upper()
-            .str.replace(" ", "_")
-            .str.replace("-", "_")
-        )
 
         required_cols = ["PROGRAMME", "CAMPUS"]
         for col in required_cols:
