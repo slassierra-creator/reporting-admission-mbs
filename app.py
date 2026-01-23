@@ -101,8 +101,13 @@ else:
 
     df = load_data()
 
-    if df is None:
-        st.stop()
+# 🔍 DEBUG TEMPORAIRE
+st.subheader("DEBUG – aperçu des données")
+st.write(df.head())
+st.write(df.dtypes)
+
+if df is None:
+    st.stop()
 
     # --- KPI CALCULATIONS ---
     EXPECTED_NUMERIC_COLUMNS = [
